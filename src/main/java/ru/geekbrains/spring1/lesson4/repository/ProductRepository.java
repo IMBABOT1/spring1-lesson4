@@ -1,13 +1,14 @@
 package ru.geekbrains.spring1.lesson4.repository;
 
-import jakarta.annotation.PostConstruct;
+
 import org.springframework.stereotype.Repository;
 import ru.geekbrains.spring1.lesson4.data.Product;
 
+import javax.annotation.PostConstruct;
 import java.util.*;
 
 @Repository
-public class ProductRepository {
+public class ProductRepository implements ProductDao {
 
     private List<Product> products;
 
@@ -43,5 +44,10 @@ public class ProductRepository {
                 return;
             }
         }
+    }
+
+    @Override
+    public void save(Product product) {
+        throw new UnsupportedOperationException();
     }
 }
